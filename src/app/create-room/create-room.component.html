@@ -1,0 +1,8 @@
+<h1 class="title">Create a Room</h1>
+<hr>
+<form #create="ngForm" (ngSubmit)="createRoom(create)">
+    <div class="form-group-lg">
+        <input type="text" class="form-control form-control-lg" placeholder="Name" name="name" ngModel required />
+        <button class="btn btn-lg btn-default">Submit</button>
+    </div>
+</form>

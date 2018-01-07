@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+}
+.title {
+    text-align: center;
+}
+li {
+    list-style: none;
+}
+
+#time-text {
+    font-size: 1.5em;
+}
+
+#time-select {
+    border-radius: 5px;
+    width: 100px;
+    height: 35px;
+}
+
+#disabled-time-select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border-radius: 5px;
+    width: 100px;
+    height: 35px;
+    background-color: rgb(245, 245, 245);
+}
+
+#players-list {
+    background-color: rgb(245, 245, 245);
+    border-style: solid;
+}
+
