@@ -66,7 +66,6 @@ export class LobbyComponent implements OnInit {
         this.roomService.listen('player-left').subscribe((data) => {
             this.players = data.players;
             if (this.players.length > 0) {
-                console.log(this.players[0]);
                 if (this.players[0] === this.commonService.name) {
                     this.isHost = true;
                 }

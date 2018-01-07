@@ -3,6 +3,7 @@ import { Http } from '@angular/http';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
+import { environment } from '../../environments/environment';
 
 import * as io from 'socket.io-client';
 import * as locations from '../locations.json';
@@ -17,7 +18,7 @@ export class RoomService {
   isGameOver = new BehaviorSubject<boolean>(false);
 
   constructor(private http: Http, private router: Router) {
-    this.socket = io('http://localhost:3000');
+    this.socket = io(environment.socket.baseUrl);
 
     this.numLocations = Object.keys(locations).length;
 

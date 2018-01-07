@@ -30,7 +30,6 @@ export class GameComponent implements OnInit {
 
         this.roomService.getGameInfo().subscribe((data: any) => {
             if (data != null) {
-                console.log(this.commonService.name);
                 let playerIndex = data.players.indexOf(this.commonService.name);                
                 if (data.info.roles[playerIndex] !== 'Spy') {
                     this.location = this.roomService.getLocation(data.info.locIndex).display;
