@@ -20,7 +20,7 @@ const routes: Routes = [
     { path: 'create', component: CreateRoomComponent },
     { path: 'join', component: JoinRoomComponent },
     { path: ':roomCode/lobby', component: LobbyComponent },
-    { path: ':roomCode/module', component: GameComponent }
+    { path: ':roomCode/game', component: GameComponent }
 ]
 
 @NgModule({

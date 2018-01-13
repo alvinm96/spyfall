@@ -77,7 +77,7 @@ export class LobbyComponent implements OnInit {
         });
 
         this.roomService.listen('starting-game').subscribe(() => {
-            this.router.navigateByUrl('/play/' + this.roomCode + '/module');
+            this.router.navigateByUrl('/play/' + this.roomCode + '/game');
         });
     }
 
@@ -86,7 +86,7 @@ export class LobbyComponent implements OnInit {
             if (data) {
                 window.alert('There are not enough players.');
             } else {
-                this.router.navigateByUrl('/play/' + this.roomCode + '/module');
+                this.router.navigateByUrl('/play/' + this.roomCode + '/game');
             }
         });
         this.roomService.startGame();

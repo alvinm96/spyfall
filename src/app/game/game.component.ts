@@ -18,12 +18,15 @@ export class GameComponent implements OnInit {
     role: string = '???';
     time = 0;
     roleModalRef: BsModalRef;
+    locationsArr: string[] = [];
 
     constructor(private roomService: RoomService, 
                 private modalService: BsModalService,
                 private commonService: CommonService) { }
 
     ngOnInit() {
+        this.getLocations();
+        
         this.roomService.listen('time-count').subscribe((time) => {
             this.time = time;
         });
@@ -49,5 +52,18 @@ export class GameComponent implements OnInit {
 
     showRole(roleTemplate: TemplateRef<any>) {
         this.roleModalRef = this.modalService.show(roleTemplate);
+    }
+
+    endGame() {
+        this.roomService.endGame();
+    }
+
+    private getLocations() {
+        let numLocs = this.roomService.numLocations;
+        for (let i = 0; i < numLocs; i++) {
+            let loc = this.roomService.getLocation(i).display;
+            this.locationsArr.push(loc);
+        }
+        this.locationsArr.sort();
     }
 }

@@ -10,6 +10,8 @@ export class TimePipe implements PipeTransform {
         let seconds = (value - minutes * 60);
         if (seconds === 0) {
             return minutes + ':' + seconds + '0';
+        } else if (seconds < 10) {
+            return minutes + ':0' + seconds;
         }
         return minutes + ':' + seconds;
     }

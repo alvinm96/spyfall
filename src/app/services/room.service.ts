@@ -61,6 +61,10 @@ export class RoomService {
     this.socket.emit('game-start', gameInfo);
   }
 
+  endGame() {
+    this.socket.emit('end-game');
+  }
+
   leaveRoom(info: {roomCode: string, name: string}) {
     this.socket.emit('leave-room', info);
   }

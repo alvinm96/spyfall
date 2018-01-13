@@ -7,6 +7,8 @@
         <div class="form-group">
             <label for="time">Time</label>
             <select class="form-control mx-sm-3" id="time" *ngIf="isHost" #time (change)="updateTime(time.value)">
+                <option value="0.2">0:10</option>
+
                 <option value="5">5:00</option>
                 <option value="6">6:00</option>
                 <option value="7">7:00</option>

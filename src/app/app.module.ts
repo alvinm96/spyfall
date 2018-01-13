@@ -7,12 +7,14 @@ import { Ng2Webstorage } from 'ngx-webstorage';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { PlayGameComponent } from './play-game/play-game.component';
+import { AboutComponent } from './about/about.component';
 
 import { CommonService } from './services/common.service';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'play', component: PlayGameComponent },
+  { path: 'about', component: AboutComponent },
   { path: 'play', loadChildren: './game.module#GameModule' }
 ];
 
@@ -20,7 +22,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     HomeComponent,
-    PlayGameComponent
+    PlayGameComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
