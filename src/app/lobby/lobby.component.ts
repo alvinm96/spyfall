@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterContentInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { CommonService } from '../services/common.service';
@@ -33,13 +33,15 @@ export class LobbyComponent implements OnInit {
         });
         this.roomService.listen('invalid-name').subscribe(() => {
             this.router.navigateByUrl('/play/join').then(() => {
-                window.alert('Room does not exist.');
+                window.alert('Invalid name.');
             });
         });
-        this.roomService.listen('existing-player').subscribe(() => {
-            this.router.navigateByUrl('/play/join').then(() => {
-                window.alert('Player already exists.');
-            });
+        this.roomService.listen('existing-player').subscribe((res) => {
+            if (this.commonService.name !== res) {
+                this.router.navigateByUrl('/play/join').then(() => {
+                    window.alert('Player already exists.');
+                });
+            }
         });
     }
 

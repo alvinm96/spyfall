@@ -35,6 +35,10 @@ export class RoomService {
     });
   }
 
+  resetIsGameOver() {
+    this.isGameOver.next(false);
+  }
+
   getIsGameOver(): Observable<boolean> {
     return this.isGameOver.asObservable();
   }
@@ -52,11 +56,11 @@ export class RoomService {
   }
 
   startGame() {
-    let locIndex = this.genRanNum(this.numLocations - 1)
+    let locIndex = this.genRanNum(this.numLocations - 1);
     let gameInfo = {
       locIndex: locIndex,
       roles: this.getRoles(locIndex)
-    }
+    };
 
     this.socket.emit('game-start', gameInfo);
   }

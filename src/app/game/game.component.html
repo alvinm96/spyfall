@@ -10,7 +10,7 @@
         <p *ngFor="let location of locationsArr">{{location}}</p>
     </div>
 </div>
-<div class="row">
+<div class="row" *ngIf="isHost">
     <div class="col">
         <button class="btn btn-default btn-lg" (click)="endGame()">End Game</button>
     </div>
